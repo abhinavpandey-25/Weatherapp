@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="stylereport.css" type="text/css" media="all" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script>
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML =
+        h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
+</head>
+<body onload="startTime()">
+<h1>REAL TIME WEATHER WIDGET</h1>
+<div class="container">
+    <div class="city">
+<%=cityname%> 
+   </div>
+    <div class="content">        
+        <div class="place">
+            <div id="txt"></div>
+            <div class="dmy">
+                <%=current%>
+        </div> 
+        </div>
+        <div class="temp" >
+            <img src="http://openweathermap.org/img/wn/<%=image%>@2x.png">
+            <p id="desc">    <%=description%>            </p>
+            <p><%=temperature%>° C</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div>
+    <button type="submit" ><a href="/"><b>Back</b></a></button>    
+</div>
+</body>
+<footer>
+    <div>
+<p>My App copyright@ AppNation</p>
+</footer>
+</div>
+</div>    
+</html>
+
