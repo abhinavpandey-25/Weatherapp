@@ -1,1 +1,1 @@
-# Weatherapp
+# Weatherapp using weather api
